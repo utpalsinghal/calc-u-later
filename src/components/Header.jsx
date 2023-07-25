@@ -6,20 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 const Header = (props) => {
   const dispatch = useDispatch();
   const mode = useSelector(state => state.mode);
-
-	const handleToggle = () => {
-    if(mode === "Standard") {
-      dispatch(switchMode("Scientific"));
-    } else {
-      dispatch(switchMode("Standard"));
-    }
+ console.log('mode', mode);
+	const handleToggle = (type) => {
+		dispatch(switchMode(type));
 	};
 
 	return (
 		<div className='header'>
 			<img src={logo} alt='Logo' className='logo' />
 			<p className='title'>Calc-U-Later</p>
-			<button onClick={handleToggle}>{mode}</button>
+			<button className="mode-toggle" onClick={(e) => handleToggle("Basic")}>Basic</button>
+			<button className="mode-toggle" onClick={(e) => handleToggle("Scientific")}>Scientific</button>
 		</div>
 	);
 };

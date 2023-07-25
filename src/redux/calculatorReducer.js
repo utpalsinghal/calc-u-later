@@ -1,7 +1,7 @@
 import { SWITCH_MODE } from "./calculatorTypes";
 
 const initialState = {
-	mode: "Standard",
+	mode: "Basic",
 	displayValue: 0,
 	history: "",
 };

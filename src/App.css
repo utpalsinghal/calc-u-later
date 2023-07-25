@@ -49,3 +49,35 @@
 	margin: 0 10px;
 }
 /* Header styling end */
+
+.main {
+	margin-top: 45px;
+	margin-bottom: 45px;
+	display: flex;
+}
+
+.calculator {
+	width: 60vw;
+	position: fixed;
+	height: calc(100% - 90px);
+}
+.calculator .keys .row {
+	display: flex;
+	height: 20%;
+}
+.calculator .keys .row .col {
+	width: 100%;
+	text-align: center;
+	border: black 1px solid;
+}
+.transactions {
+	height: 40%;
+}
+.keys {
+	height: 60%;
+}
+
+.notes {
+	position: relative;
+	left: 60vw;
+}
