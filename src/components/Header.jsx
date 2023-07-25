@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../images/logo.png";
 import { switchMode } from "../redux/calculatorActions";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -24,14 +24,4 @@ const Header = (props) => {
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		handleToggle: (mode) => dispatch(switchMode(mode)),
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;
