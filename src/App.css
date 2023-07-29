@@ -57,27 +57,46 @@
 }
 
 .calculator {
-	width: 60vw;
+	width: 70vw;
 	position: fixed;
 	height: calc(100% - 90px);
 }
-.calculator .keys .row {
+.calculator .keypad .row {
 	display: flex;
 	height: 20%;
 }
-.calculator .keys .row .col {
+.calculator .keypad .row .col {
 	width: 100%;
 	text-align: center;
 	border: black 1px solid;
+	font-size: 20px;
 }
-.transactions {
-	height: 40%;
+.formula {
+	height: calc(20% - 20px);
+	text-align: right;
+	padding: 10px;
 }
-.keys {
+.result {
+	height: calc(20% - 20px);
+	text-align: right;
+	padding: 10px;
+}
+.keypad {
 	height: 60%;
 }
 
 .notes {
-	position: relative;
-	left: 60vw;
+	left: 70vw;
+	width: calc(30vw - 20px);
+	position: fixed;
+	height: calc(100% - 110px);
+	box-shadow: inset 0px 0px 5px black;
+	padding: 10px;
+}
+.notes > textarea {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: none;
+	resize: none;
 }
