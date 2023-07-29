@@ -47,8 +47,9 @@ const Calculator = () => {
 		let result;
 
 		try {
-			if (!areBracketsBalanced()) {
-				const error = { message: "Brackets are not balanced!", code: 1 };
+			const validation = validateInput();
+			if (validation.status === "error") {
+				const error = validation;
 				throw error;
 			}
 			result = evaluate(tempExpression);
@@ -69,20 +70,60 @@ const Calculator = () => {
 		}
 	};
 
-	const areBracketsBalanced = () => {
-		let stack = [];
-		for (let i = 0; i < expression.length; i++) {
-			let element = expression.charAt(i);
-			if (element === "(") {
-				stack.push(element);
-				continue;
-			} else if (element === ")") {
-				if (stack.length === 0) return false;
-				stack.pop();
+	const validateInput = () => {
+		const areBracketsBalanced = () => {
+			let stack = [];
+			for (let i = 0; i < expression.length; i++) {
+				let element = expression.charAt(i);
+				if (element === "(") {
+					stack.push(element);
+					continue;
+				} else if (element === ")") {
+					if (stack.length === 0) {
+						return false;
+					}
+					stack.pop();
+				}
 			}
+			if (stack.length === 0) {
+				return true;
+			} else {
+				return false;
+			}
+		};
+		const expressionEndsWithInvalidCharacter = () => {
+			const inputValueLen = expression.length;
+			const lastInput = expression.charAt(inputValueLen - 1);
+			if (
+				lastInput === "÷" ||
+				lastInput === "x" ||
+				lastInput === "-" ||
+				lastInput === "+" ||
+				lastInput === "."
+			) {
+				return false;
+			} else {
+				return true;
+			}
+		};
+
+		if (!areBracketsBalanced()) {
+			let error = {
+				status: "error",
+				message: "Brackets are not balanced!\nThanos triggered :(",
+				code: 1,
+			};
+			return error;
 		}
-		if (stack.length === 0) return true;
-		else return false;
+		if (!expressionEndsWithInvalidCharacter()) {
+			let error = {
+				status: "error",
+				message: "Last input cannot be an operator.",
+				code: 2,
+			};
+			return error;
+		}
+		return { status: "success" };
 	};
 
 	return (
