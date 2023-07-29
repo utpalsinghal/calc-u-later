@@ -71,6 +71,9 @@
 	border: black 1px solid;
 	font-size: 20px;
 }
+.calculator .keypad .row .col.half {
+	width: 50%;
+}
 .formula {
 	height: calc(20% - 20px);
 	text-align: right;
