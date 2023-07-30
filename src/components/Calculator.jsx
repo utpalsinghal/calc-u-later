@@ -4,12 +4,14 @@ import { evaluate, round } from "mathjs";
 const Calculator = () => {
 	const [expression, setExpression] = useState("");
 	const [history, setHistory] = useState([]);
-    const MAX_HISTORY_LENGTH = 10;
+	const MAX_HISTORY_LENGTH = 10;
 
 	useEffect(() => {
 		let tHistory = [...history];
 		if (tHistory.length > MAX_HISTORY_LENGTH) {
-			tHistory = tHistory.filter((element, index) => index < MAX_HISTORY_LENGTH);
+			tHistory = tHistory.filter(
+				(element, index) => index < MAX_HISTORY_LENGTH
+			);
 			setHistory(tHistory);
 		}
 	}, [history]);
@@ -64,7 +66,7 @@ const Calculator = () => {
 			}
 			let result = evaluate(tempExpression);
 			result = round(result, 8).toString();
-      const newCalculation = `${expression} = ${result}`
+			const newCalculation = `${expression} = ${result}`;
 			let tHistory = [newCalculation, ...history];
 			if (result === "0") {
 				setExpression("");
@@ -228,11 +230,11 @@ const Calculator = () => {
 					</div>
 				</div>
 				<div className='row'>
-					<div className='col' onClick={handleOperand}>
-						<p>{`0`}</p>
-					</div>
 					<div className='col sec-background' onClick={handleOperand}>
 						<p>{`.`}</p>
+					</div>
+					<div className='col' onClick={handleOperand}>
+						<p>{`0`}</p>
 					</div>
 					<div className='col accent-background' onClick={handleCalculate}>
 						<p>{`=`}</p>

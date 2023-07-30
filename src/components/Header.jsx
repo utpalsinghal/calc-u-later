@@ -14,10 +14,10 @@ const Header = (props) => {
 		<div className='header'>
 			<img src={logo} alt='Logo' className='logo' />
 			<p className='title'>Calc-U-Later</p>
-			<button className='mode-toggle' onClick={(e) => handleToggle("Basic")}>
+			<button className='mode-toggle basic active' onClick={(e) => handleToggle("Basic")}>
 				Basic
 			</button>
-			<button className='mode-toggle' onClick={(e) => handleToggle("Scientific")}>
+			<button className='mode-toggle scientific inactive' disabled onClick={(e) => handleToggle("Scientific")}>
 				Scientific
 			</button>
 		</div>

@@ -55,12 +55,24 @@
 .header .mode-toggle {
 	margin-right: 10px;
 	min-width: 8em;
+	border-radius: 20px;
+	font-weight: 600;
+	cursor: pointer;
+}
+.header .mode-toggle.active {
 	background-color: #f8ece7;
 	color: #201009;
 	border: none;
-	border-radius: 20px;
 	padding: 5px;
-	font-weight: 600;
+}
+.header .mode-toggle.inactive {
+	background-color: inherit;
+	color: #f8ece7;
+	border: 1px solid #f8ece7;
+	padding: 4px;
+}
+.header button:disabled.mode-toggle {
+	cursor: not-allowed;
 }
 /* Header styling end */
 
@@ -156,9 +168,9 @@
 	border-radius: 5px;
 }
 .accent-background {
-	background-color: #a2502f!important;
-	color: #f8ece7!important
+	background-color: #a2502f !important;
+	color: #f8ece7 !important;
 }
 .sec-background {
-	background-color: #eed4ca!important;
+	background-color: #eed4ca !important;
 }
