@@ -19,6 +19,7 @@
 	margin: 0 10px;
 	height: 100%;
 	width: 100%;
+	min-width: 176px;
 }
 .social-links {
 	display: flex;
@@ -48,6 +49,7 @@
 	height: 100%;
 	width: 100%;
 	margin: 0;
+	min-width: 100px;
 }
 .logo {
 	margin: 0 10px;
@@ -132,7 +134,6 @@
 	text-align: right;
 	padding: 10px;
 	background-color: #f8ece7;
-	/* color: #f8ece7; */
 }
 .result > p {
 	margin: 0;
@@ -173,4 +174,12 @@
 }
 .sec-background {
 	background-color: #eed4ca !important;
+}
+@media only screen and (max-width: 768px) {
+	.calculator {
+		width: 100vw;
+	}
+	.notes {
+		display: none;
+	}
 }
