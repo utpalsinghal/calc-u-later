@@ -9,7 +9,6 @@ const Header = (props) => {
 	const handleToggle = (type) => {
 		dispatch(switchMode(type));
 	};
-	console.log("mode", mode);
 
 	return (
 		<div className='header'>

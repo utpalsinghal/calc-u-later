@@ -48,6 +48,10 @@
 .logo {
 	margin: 0 10px;
 }
+.header .mode-toggle {
+	margin-right: 5px;
+	min-width: 8em;
+}
 /* Header styling end */
 
 .main {
@@ -70,19 +74,45 @@
 	text-align: center;
 	border: black 1px solid;
 	font-size: 20px;
+	-webkit-user-select: none; /* Safari */
+	-ms-user-select: none; /* IE 10 and IE 11 */
+	user-select: none; /* Standard syntax */
 }
 .calculator .keypad .row .col.half {
 	width: 50%;
 }
-.formula {
-	height: calc(20% - 20px);
+.history {
+	height: 30%;
+	position: relative;
+	overflow: auto;
+}
+.history::-webkit-scrollbar {
+	width: 12px;
+}.history::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 0px;
+}
+.history div {
+	position: absolute;
+	margin: 10px;
+	bottom: 0;
+	right: 0;
+	height: calc(100% - 20px);
+}
+.history p {
+	margin: 0;
 	text-align: right;
-	padding: 10px;
 }
 .result {
-	height: calc(20% - 20px);
+	height: calc(10% - 20px);
 	text-align: right;
-	padding: 10px;
+	margin: 10px;
+}
+.result > p {
+	margin: 0;
+	height: 100%;
+	font-size: calc(8vh / 1.5);
+	line-height: 1;
 }
 .keypad {
 	height: 60%;

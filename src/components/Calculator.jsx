@@ -3,6 +3,16 @@ import { evaluate, round } from "mathjs";
 
 const Calculator = () => {
 	const [expression, setExpression] = useState("");
+	const [history, setHistory] = useState([]);
+    const MAX_HISTORY_LENGTH = 10;
+
+	useEffect(() => {
+		let tHistory = [...history];
+		if (tHistory.length > MAX_HISTORY_LENGTH) {
+			tHistory = tHistory.filter((element, index) => index < MAX_HISTORY_LENGTH);
+			setHistory(tHistory);
+		}
+	}, [history]);
 
 	const handleOperand = (e) => {
 		const val = e.target.innerText;
@@ -44,29 +54,31 @@ const Calculator = () => {
 		tempExpression = tempExpression.replace("x", "*");
 		tempExpression = tempExpression.length === 0 ? "0" : tempExpression;
 
-		let result;
-
 		try {
 			const validation = validateInput();
 			if (validation.status === "error") {
 				const error = validation;
 				throw error;
+			} else if (validation.status === "noAction") {
+				return;
 			}
-			result = evaluate(tempExpression);
+			let result = evaluate(tempExpression);
+			result = round(result, 8).toString();
+      const newCalculation = `${expression} = ${result}`
+			let tHistory = [newCalculation, ...history];
+			if (result === "0") {
+				setExpression("");
+			} else {
+				setExpression(result);
+				setHistory(tHistory);
+			}
 		} catch (error) {
-			if (error.code === 1) {
+			if (error.status === "error") {
 				alert(error.message);
 			} else {
 				alert("Invalid Input");
 			}
 			return;
-		}
-
-		result = round(result, 8).toString();
-		if (result === "0") {
-			setExpression("");
-		} else {
-			setExpression(result);
 		}
 	};
 
@@ -101,6 +113,19 @@ const Calculator = () => {
 				lastInput === "+" ||
 				lastInput === "."
 			) {
+				return true;
+			} else {
+				return false;
+			}
+		};
+		const expressionContainsAnyOperator = () => {
+			if (
+				expression.indexOf("%") < 0 &&
+				expression.indexOf("÷") < 0 &&
+				expression.indexOf("x") < 0 &&
+				expression.indexOf("+") < 0 &&
+				expression.indexOf("-") < 0
+			) {
 				return false;
 			} else {
 				return true;
@@ -111,15 +136,19 @@ const Calculator = () => {
 			let error = {
 				status: "error",
 				message: "Brackets are not balanced!\nThanos triggered :(",
-				code: 1,
 			};
 			return error;
 		}
-		if (!expressionEndsWithInvalidCharacter()) {
+		if (expressionEndsWithInvalidCharacter()) {
 			let error = {
 				status: "error",
 				message: "Last input cannot be an operator.",
-				code: 2,
+			};
+			return error;
+		}
+		if (!expressionContainsAnyOperator()) {
+			let error = {
+				status: "noAction",
 			};
 			return error;
 		}
@@ -128,7 +157,13 @@ const Calculator = () => {
 
 	return (
 		<div className='calculator'>
-			<div className='formula'>(0.00+0.00)</div>
+			<div className='history'>
+				<div>
+					{history.map((element, key) => {
+						return <p>{element}</p>;
+					})}
+				</div>
+			</div>
 			<div className='result'>
 				<p>{expression === "" ? 0 : expression}</p>
 			</div>
