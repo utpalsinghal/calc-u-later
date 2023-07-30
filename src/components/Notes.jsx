@@ -3,7 +3,7 @@ import React from 'react'
 const Notes = () => {
   return (
     <div className='notes'>
-      <textarea placeholder={`What's on your mind?`} />
+      <textarea placeholder={`Enter some notes...\nWhat's on your mind?`} />
     </div>
   )
 }

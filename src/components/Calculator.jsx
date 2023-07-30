@@ -169,19 +169,19 @@ const Calculator = () => {
 			</div>
 			<div className='keypad'>
 				<div className='row'>
-					<div className='col' onClick={handleOperand}>
+					<div className='col sec-background' onClick={handleOperand}>
 						<p>{`(`}</p>
 					</div>
-					<div className='col' onClick={handleOperand}>
+					<div className='col sec-background' onClick={handleOperand}>
 						<p>{`)`}</p>
 					</div>
-					<div className='col' onClick={handleOperator}>
+					<div className='col sec-background' onClick={handleOperator}>
 						<p>{`%`}</p>
 					</div>
-					<div className='col half' onClick={handleDelete}>
+					<div className='col half accent-background' onClick={handleDelete}>
 						<p>{`DEL`}</p>
 					</div>
-					<div className='col half' onClick={handleReset}>
+					<div className='col half accent-background' onClick={handleReset}>
 						<p>{`AC`}</p>
 					</div>
 				</div>
@@ -195,7 +195,7 @@ const Calculator = () => {
 					<div className='col' onClick={handleOperand}>
 						<p>{`9`}</p>
 					</div>
-					<div className='col' onClick={handleOperator}>
+					<div className='col sec-background' onClick={handleOperator}>
 						<p>{`÷`}</p>
 					</div>
 				</div>
@@ -209,7 +209,7 @@ const Calculator = () => {
 					<div className='col' onClick={handleOperand}>
 						<p>{`6`}</p>
 					</div>
-					<div className='col' onClick={handleOperator}>
+					<div className='col sec-background' onClick={handleOperator}>
 						<p>{`x`}</p>
 					</div>
 				</div>
@@ -223,7 +223,7 @@ const Calculator = () => {
 					<div className='col' onClick={handleOperand}>
 						<p>{`3`}</p>
 					</div>
-					<div className='col' onClick={handleOperator}>
+					<div className='col sec-background' onClick={handleOperator}>
 						<p>{`-`}</p>
 					</div>
 				</div>
@@ -231,13 +231,13 @@ const Calculator = () => {
 					<div className='col' onClick={handleOperand}>
 						<p>{`0`}</p>
 					</div>
-					<div className='col' onClick={handleOperand}>
+					<div className='col sec-background' onClick={handleOperand}>
 						<p>{`.`}</p>
 					</div>
-					<div className='col' onClick={handleCalculate}>
+					<div className='col accent-background' onClick={handleCalculate}>
 						<p>{`=`}</p>
 					</div>
-					<div className='col' onClick={handleOperator}>
+					<div className='col sec-background' onClick={handleOperator}>
 						<p>{`+`}</p>
 					</div>
 				</div>
