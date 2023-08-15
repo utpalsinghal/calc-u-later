@@ -8,16 +8,16 @@ const Footer = () => {
 		<div className='footer'>
 			<p className='footnote'>Created by Utpal Singhal</p>
 			<div className='social-links'>
-				<a href="mailto: utpal.singhal499@gmail.com" target="_blank">
+				<a href='mailto: utpal.singhal499@gmail.com' target='_blank'>
 					<FontAwesomeIcon icon={faEnvelope} />
 				</a>
-				<a href="https://www.linkedin.com/in/utpalsinghal/" target="_blank">
+				<a href='https://www.linkedin.com/in/utpalsinghal/' target='_blank'>
 					<FontAwesomeIcon icon={faLinkedin} />
 				</a>
-				<a href="https://github.com/utpalsinghal" target="_blank">
+				<a href='https://github.com/utpalsinghal' target='_blank'>
 					<FontAwesomeIcon icon={faGithub} />
 				</a>
-				<a href="" /*target="_blank"*/ onClick={()=>{alert("Website in-progress")}}>
+				<a href='https://utpalsinghal.vercel.app/' target='_blank'>
 					<FontAwesomeIcon icon={faLink} />
 				</a>
 			</div>
