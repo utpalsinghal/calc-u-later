@@ -4,7 +4,7 @@ import { evaluate, round } from "mathjs";
 const Calculator = () => {
 	const [expression, setExpression] = useState("");
 	const [history, setHistory] = useState([]);
-	const MAX_HISTORY_LENGTH = 10;
+	const MAX_HISTORY_LENGTH = 30;
 
 	useEffect(() => {
 		let tHistory = [...history];

@@ -82,12 +82,17 @@
 	margin-top: 45px;
 	margin-bottom: 45px;
 	display: flex;
+	position: fixed;
+	width: 100%;
+	height: calc(100% - 90px);
 }
 
 .calculator {
-	width: 70vw;
-	position: fixed;
-	height: calc(100% - 90px);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	flex-grow: 4;
+	min-width: 375px;
 }
 .calculator .keypad .row {
 	display: flex;
@@ -106,10 +111,11 @@
 	width: 50%;
 }
 .history {
-	height: 30%;
+	/* height: 30%; */
 	position: relative;
 	overflow: auto;
 	background-color: #f8ece7;
+	flex-grow: 1;
 }
 .history::-webkit-scrollbar {
 	width: 12px;
@@ -119,10 +125,7 @@
 	border-radius: 5px;
 }
 .history div {
-	position: absolute;
 	margin: 10px;
-	bottom: 0;
-	right: 0;
 	height: calc(100% - 20px);
 }
 .history p {
@@ -130,7 +133,6 @@
 	text-align: right;
 }
 .result {
-	height: calc(10% - 20px);
 	text-align: right;
 	padding: 10px;
 	background-color: #f8ece7;
@@ -141,25 +143,25 @@
 	font-size: calc(8vh / 1.5);
 	line-height: 1;
 }
-.keypad {
-	height: 60%;
+.keypad p {
+	font-size: 1.5rem;
 }
 
 .notes {
-	left: 70vw;
-	width: calc(30vw - 20px);
-	position: fixed;
-	height: calc(100% - 110px);
-}
-.notes > textarea {
-	height: 100%;
-	width: 100%;
+	flex-grow: 1;
 	padding: 10px;
 	box-shadow: inset 0px 0px 5px #8a766f;
 	outline: none;
 	border: none;
 	resize: none;
 	background-color: #f8ece7;
+}
+.notes > textarea {
+	height: 100%;
+	width: 100%;
+	border: none;
+	resize: none;
+	background-color: inherit;
 }
 .notes > textarea::-webkit-scrollbar {
 	width: 12px;
@@ -176,9 +178,6 @@
 	background-color: #eed4ca !important;
 }
 @media only screen and (max-width: 768px) {
-	.calculator {
-		width: 100vw;
-	}
 	.notes {
 		display: none;
 	}
